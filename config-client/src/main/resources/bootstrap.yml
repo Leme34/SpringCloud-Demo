@@ -17,7 +17,15 @@ spring:
       label: master       #读取git远程配置文件库中的master分支
       name: cloud-config-client    #指定读取git远程配置文件库中的cloud-config-client.yml的内容
       profile: test        #访问远程配置文件的test配置
+  rabbitmq:
+    host: 192.168.11.101
+    username: admin
+    password: 123
 eureka:
   client:
     service-url:
       defaultZone: http://admin:123456@localhost:8888/eureka
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true

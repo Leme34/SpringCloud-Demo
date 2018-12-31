@@ -10,11 +10,23 @@ spring:
       server:
         git:
           # 如果git仓库是公开仓库，那么此处的用户名和密码可以不用写
-          uri: git@github.com:Leme34/SpringCloud-Config.git  #git远程配置文件库uri
+          uri: https://github.com/Leme34/SpringCloud-Config.git  #git远程配置文件库uri
           #basedir: D:/git-config     #从指定的git远程仓库克隆配置文件到本地的路径(默认是系统临时文件目录),必须是空目录否则会覆盖目录已有内容
+  rabbitmq:
+    host: 192.168.11.101
+    username: admin
+    password: 123
+
 eureka:
   client:
     service-url:
       defaultZone: http://admin:123456@localhost:8888/eureka/
   instance:
     prefer-ip-address: true #以IP地址注册到服务中心，相互注册使用IP地址
+
+#暴露刷新配置需要请求的url
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
