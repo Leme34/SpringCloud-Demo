@@ -1,0 +1,56 @@
+#zuul网关端口
+server:
+  port: 10010
+
+spring:
+  application:
+    name: zuul-demo
+
+
+#需要到eureka注册中心拉取服务
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 获取服务列表的周期：5s
+    service-url:
+      defaultZone: http://admin:123456@localhost:8888/eureka/
+  instance:
+    prefer-ip-address: true #以IP地址注册到服务中心，相互注册使用IP地址
+
+#zuul网关配置
+#zuul:
+#  routes:
+#    routeId: # 这里是路由id，随意写
+#      path: /epm-service/**  #这里是映射路径
+#      serviceId: emp-service  #指定需要拉取的服务的serverId(底层实现负载均衡)
+#      strip-prefix: true    #使请求路径不需要写path:/epm-service/前缀
+
+#zuul网关简化版配置
+zuul:
+  prefix: /zuul  #url路径前缀
+  routes:  #一个routes对应一个服务
+    emp-service: /epm-service/**  #key是serverId,value是映射路径,zuul网关会把eureka拉取到的每个服务都默认这么配置
+  ignored-services:
+    - consumer-demo  #去除为使eureka能拉取到的每个服务而默认配置的路由,全部去除则写"*"
+
+  host:
+    connect-timeout-millis: 60000  #若不配置会很容易超时
+    socket-timeout-millis: 60000
+
+#ribbon配置
+ribbon:
+  ConnectTimeout: 250 # 连接超时时间(ms)
+  ReadTimeout: 2000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 2 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+
+
+#熔断服务最大时长
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+

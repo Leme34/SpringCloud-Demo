@@ -1,0 +1,23 @@
+#bootstrap.yml：系统级配置,启动时先载入此配置,否则应用会因为还没有拉取到远程配置而启动失败
+
+#spring:
+#  cloud:
+#    config:
+#      name: cloud-config-client    #指定读取git远程配置文件库中的cloud-config-client.yml的内容
+#      profile: test        #访问远程配置文件的test配置
+#      label: master       #读取git远程配置文件库中的master分支
+#      uri: http://test.cloud-config-server.com:9999  #本服务启动后先连接此uri对应的config-server,并由它获取github的配置
+
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true                 #启用配置服务发现
+        service-id: config-server     #本服务启动后从配置中心服务端config-server拉取配置
+      label: master       #读取git远程配置文件库中的master分支
+      name: cloud-config-client    #指定读取git远程配置文件库中的cloud-config-client.yml的内容
+      profile: test        #访问远程配置文件的test配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8888/eureka

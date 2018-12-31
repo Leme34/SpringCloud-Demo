@@ -1,0 +1,7 @@
+#application.yml：用户级配置,若有bootstrap.yml则此配置不生效
+server:
+  port: 9998
+
+spring:
+  application:
+    name: config-client
