@@ -1,0 +1,22 @@
+﻿eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8888/eureka
+
+spring:
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: master       #读取git远程配置文件库中的master分支
+      name: cloud-stream-rabbitmq    #指定读取git远程配置文件库中的cloud-stream-rabbitmq.yml的内容
+    stream:
+      bindings:
+        input:      #信道名字
+          group: test   #配置多个实例绑定同一信道分组,解决启动多个实例都能接收同一个消息的问题
+          content-type: application/json #配置在mq管理页面使用json形式展示消息内容
+          destination: topic1   #绑定一个主题Topic
+        output:
+          destination: topic1   #绑定一个主题Topic
