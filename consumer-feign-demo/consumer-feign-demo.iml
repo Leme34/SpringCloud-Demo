@@ -18,6 +18,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
+    <content url="file://$MODULE_DIR$/../consumer-feign-zipkin-demo/src/main/java">
+      <sourceFolder url="file://$MODULE_DIR$/../consumer-feign-zipkin-demo/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../consumer-feign-zipkin-demo/src/main/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../consumer-feign-zipkin-demo/src/main/resources" type="java-resource" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE" level="project" />
@@ -133,7 +139,7 @@
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex:rxjava-reactive-streams:1.2.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.reactivestreams:reactive-streams:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-openfeign:2.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-openfeign:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-openfeign-core:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-commons:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.0.7.RELEASE" level="project" />

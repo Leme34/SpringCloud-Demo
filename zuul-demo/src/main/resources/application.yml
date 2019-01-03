@@ -45,7 +45,7 @@ ribbon:
   MaxAutoRetries: 1 # 同一实例的重试次数
 
 
-#熔断服务最大时长
+#全局熔断服务最大时长
 hystrix:
   command:
     default:

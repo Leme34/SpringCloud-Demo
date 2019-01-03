@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 通过zuul实现自定义拦截器,若请求没有传参access-token则拦截请求
  */
-@Component
+//@Component
 public class LoginFilter extends ZuulFilter{
 
     /**

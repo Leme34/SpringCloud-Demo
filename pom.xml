@@ -18,12 +18,13 @@
     <modules>
         <module>emp-service</module>
         <module>eureka-server</module>
-        <module>consumer-demo</module>
+        <module>consumer-hystrix-demo</module>
         <module>consumer-feign-demo</module>
         <module>zuul-demo</module>
         <module>consumer-hystrix-dashboard</module>
         <module>config-server</module>
         <module>config-client</module>
+        <module>zipkin-demo</module>
     </modules>
     <packaging>pom</packaging>
 

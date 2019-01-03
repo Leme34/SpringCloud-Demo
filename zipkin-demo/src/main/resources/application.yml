@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: consumer-demo
+  #配置zipkin服务地址
+  zipkin:
+    base-url: http://192.168.11.101:9411
+  #把监控信息全部转出到zipkin中
+  sleuth:
+    sampler:
+      percentage: 1       #100%
+#输出feign的日志
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+
+#全局设置调用者等待命令执行的超时限制(1s),超过此时间,并执行fallback(降级)逻辑
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+
+
+#服务注册的时候需要security认证：http://用户名:密码@localhost:8888/eureka
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8888/eureka/
+    registry-fetch-interval-seconds: 5
+
+# 开启Feign的熔断功能
+feign:
+  hystrix:
+    enabled: true
