@@ -22,7 +22,7 @@ eureka:
 #    routeId: # 这里是路由id，随意写
 #      path: /epm-service/**  #这里是映射路径
 #      serviceId: emp-service  #指定需要拉取的服务的serverId(底层实现负载均衡)
-#      strip-prefix: true    #使请求路径不需要写path:/epm-service/前缀
+#      strip-prefix: true    #向此微服务转发的请求路径忽略path前缀（"/epm-service/"),只转发其后的路径
 
 #zuul网关简化版配置
 zuul:
