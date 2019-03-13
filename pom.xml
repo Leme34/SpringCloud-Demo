@@ -66,6 +66,13 @@
                 <version>${spring-boot-starter-web-version}</version>
             </dependency>
 
+            <!-- 引入security保护注册中心页面 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot-starter-web-version}</version>
+            </dependency>
+                 
         </dependencies>
     </dependencyManagement>
 
