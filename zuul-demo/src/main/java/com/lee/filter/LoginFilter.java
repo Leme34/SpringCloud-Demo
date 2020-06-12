@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * 通过zuul实现自定义拦截器,若请求没有传参access-token则拦截请求
  */
 //@Component
-public class LoginFilter extends ZuulFilter{
+public class LoginFilter extends ZuulFilter {
 
     /**
      * 指定过滤器类型
@@ -26,7 +26,8 @@ public class LoginFilter extends ZuulFilter{
     }
 
     /**
-     * 指定过滤器顺序,数字越小表示越先执行
+     * 指定过滤器顺序,数字越小表示越先执行，
+     * 若要从RequestContext取出信息则过滤顺序不能太前，否则RequestContext信息未构造完整会取不到
      */
     @Override
     public int filterOrder() {
@@ -43,10 +44,11 @@ public class LoginFilter extends ZuulFilter{
 
     /**
      * 过滤逻辑
+     *
      * @return return任何值(包括null)都表示继续执行
-     *  只有  RequestContext ctx = RequestContext.getCurrentContext();
-     *          ctx.setSendZuulResponse(false);
-     *  后才不继续执行
+     * 只有  RequestContext ctx = RequestContext.getCurrentContext();
+     * ctx.setSendZuulResponse(false);
+     * 后才不继续执行
      */
     @Override
     public Object run() throws ZuulException {
@@ -56,7 +58,7 @@ public class LoginFilter extends ZuulFilter{
         //获取请求域中的数据
         String token = request.getParameter("access-token");
         //若不存在
-        if (StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             //未登录,拦截请求
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(HttpStatus.SC_FORBIDDEN);

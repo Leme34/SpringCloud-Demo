@@ -35,6 +35,11 @@ zuul:
   host:
     connect-timeout-millis: 60000  #若不配置会很容易超时
     socket-timeout-millis: 60000
+    max-total-connections: 200     #http连接池大小
+    max-per-route-connections: 20  #每个host的最大连接数
+  ribbon-isolation-strategy: semaphore  #HystrixCommand的隔离模式使用信号量
+  semaphore:
+    max-semaphores: 100            #最大信号量
 
 #ribbon配置
 ribbon:
