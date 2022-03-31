@@ -32,7 +32,7 @@
         <spring-cloud-dependencies.version>Finchley.SR1</spring-cloud-dependencies.version>
         <mapper-spring-boot-starter.version>1.2.4</mapper-spring-boot-starter.version>
         <mysql-connector-java-version>5.1.32</mysql-connector-java-version>
-        <spring-boot-starter-web-version>2.0.4.RELEASE</spring-boot-starter-web-version>
+        <spring-boot-starter-web-version>2.5.12</spring-boot-starter-web-version>
     </properties>
 
 
